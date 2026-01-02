@@ -12,13 +12,26 @@ public class MenuController {
 
     public void run() {
         inputView.menuRecommendation();
-        List<Person> persons = inputPersonNameTry();
+        List<Person> personsNames = inputPersonNameTry();
+
+        List<Person> persons = inputDislikeByPersonTry(personsNames);
+
     }
 
     private List<Person> inputPersonNameTry() {
         while (true) {
             try {
                 return inputView.inputPersonNames();
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+    private List<Person> inputDislikeByPersonTry(List<Person> personsNames) {
+        while (true) {
+            try {
+                return inputView.inputDislikeByPerson(personsNames);
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }

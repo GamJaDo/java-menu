@@ -1,6 +1,7 @@
 package menu.view;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 import menu.domain.Person;
@@ -19,9 +20,7 @@ public class InputView {
         String nameInput = scanner.nextLine();
         String[] names = nameInput.split(",");
 
-        if (names.length > 5 || names.length < 2) {
-            throw new IllegalArgumentException("[ERROR] 코치는 2명에서 5명 사이어야 합니다.");
-        }
+        validatePersonNumber(names);
 
         List<Person> persons = new ArrayList<>();
         for (String name : names) {
@@ -29,5 +28,26 @@ public class InputView {
         }
 
         return persons;
+    }
+
+    public List<Person> inputDislikeByPerson(List<Person> personsNames) {
+        List<Person> persons = new ArrayList<>();
+        for (Person person : personsNames) {
+            System.out.println();
+            System.out.println(person.getName() + "(이)가 못 먹는 메뉴를 입력해 주세요.");
+            String dislikeInput = scanner.nextLine();
+            String[] dislikes = dislikeInput.split(",");
+            person.setDislikes(new ArrayList<String>(Arrays.asList(dislikes)));
+
+            persons.add(person);
+        }
+
+        return persons;
+    }
+
+    private void validatePersonNumber(String[] names) {
+        if (names.length > 5 || names.length < 2) {
+            throw new IllegalArgumentException("[ERROR] 코치는 2명에서 5명 사이어야 합니다.");
+        }
     }
 }
