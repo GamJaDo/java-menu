@@ -18,7 +18,7 @@ public class MenuController {
 
         outputView.menuRecommend();
         */
-        outputView.getCategory();
+        outputView.menuRecommend();
     }
 
     private List<Person> inputPersonNameTry() {

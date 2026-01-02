@@ -13,11 +13,12 @@ public class OutputView {
         System.out.println();
         System.out.println("메뉴 추천 결과입니다.");
         System.out.println("[ 구분 | 월요일 | 화요일 | 수요일 | 목요일 | 금요일 ]");
-
+        System.out.println(getCategory());
 
     }
 
-    public void getCategory() {
+    private String getCategory() {
+        StringBuilder resultCategory = new StringBuilder("[ 카테고리");
         List<Category> categories = new ArrayList<>();
 
         while (categories.size() < 5) {
@@ -30,6 +31,11 @@ public class OutputView {
             categories.add(category);
         }
 
-        System.out.print(Arrays.toString(categories.toArray()));
+        for(Category category : categories) {
+            resultCategory.append(" | ").append(category.name());
+        }
+        resultCategory.append("]");
+
+        return resultCategory.toString();
     }
 }
