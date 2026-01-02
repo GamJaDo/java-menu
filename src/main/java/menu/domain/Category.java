@@ -25,4 +25,8 @@ public enum Category {
     public List<String> getMenus() {
         return menus;
     }
+
+    public static Category getCategory(int number) {
+        return values()[number - 1];
+    }
 }
