@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Person {
 
-    private String name;
+    private final String name;
     private List<String> dislikes;
 
     public Person(String name) {
@@ -14,6 +14,10 @@ public class Person {
 
     public String getName() {
         return name;
+    }
+
+    public List<String> getDislikes() {
+        return dislikes;
     }
 
     public void setDislikes(List<String> dislikes) {

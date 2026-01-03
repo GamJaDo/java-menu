@@ -11,14 +11,13 @@ public class MenuController {
     private final OutputView outputView = new OutputView();
 
     public void run() {
-        /*
         inputView.menuRecommendationStart();
         List<Person> personsNames = inputPersonNameTry();
         List<Person> persons = inputDislikeByPersonTry(personsNames);
 
-        outputView.menuRecommend();
-        */
-        outputView.menuRecommend();
+        outputView.menuRecommend(persons);
+
+        inputView.menuRecommendationEnd();
     }
 
     private List<Person> inputPersonNameTry() {

@@ -45,6 +45,11 @@ public class InputView {
         return persons;
     }
 
+    public void menuRecommendationEnd() {
+        System.out.println();
+        System.out.println("추천을 완료했습니다.");
+    }
+
     private void validatePersonNumber(String[] names) {
         if (names.length > 5 || names.length < 2) {
             throw new IllegalArgumentException("[ERROR] 코치는 2명에서 5명 사이어야 합니다.");
